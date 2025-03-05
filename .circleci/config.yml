@@ -41,8 +41,8 @@ jobs:
           paths:
             - ./node_modules
       - run:
-          name: Docker login
-          command: echo $DOCKER_PASSWORD | docker login -u $DOCKER_USERNAME --password-stdin
+          name: docker-login
+          command: docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
       - run:
           name: Build Docker Image
           command: docker build -t $IMAGE_NAME:latest .
